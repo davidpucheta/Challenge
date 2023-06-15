@@ -29,8 +29,8 @@ public class CategoryController : ControllerBase
             catQuery = catQuery.Where(c => c.Code == filter.SearchCode);
 
         catQuery = filter.SortDesc
-            ? catQuery.OrderByDescending(c => EF.Property<Category>(c, filter.SortBy.ToString()))
-            : catQuery.OrderBy(c => EF.Property<Category>(c, filter.SortBy.ToString()));
+            ? catQuery.OrderByDescending(c => EF.Property<Category>(c, filter.SortBy))
+            : catQuery.OrderBy(c => EF.Property<Category>(c, filter.SortBy));
 
         catQuery = catQuery.Skip((filter.Page - 1) * filter.PageSize).Take(filter.PageSize);
 

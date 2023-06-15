@@ -1,0 +1,61 @@
+PRODUCT_CODE,PRODUCT_NAME,PRODUCT_CATEGORY_CODE,CATEGORY_CODE,CATEGORY_NAME
+0000000001,Product 01,1,1,Pain Relief
+0000000002,Product 02,1,3,Digestive Health
+0000000003,Product 03,1,5,Baby Care
+0000000004,Product 04,9,7,Cold & Allergy
+0000000005,Product 05,9,9,Deodorants
+0000000006,Product 06,9,11,Diabetes Management
+0000000007,Product 07,9,13,Weight Management & Nutritional Foods
+0000000008,Product 08,17,14,Physical Fitness & Exercise Equipment
+0000000009,Product 09,17,15,Health Supports
+0000000010,Product 10,17,16,Compression Support
+0000000011,Product 11,17,17,Multi-Cultural Beauty Care
+0000000012,Product 12,21,19,Eye & Ear Care
+0000000013,Product 13,21,21,Family Planning
+0000000014,Product 14,21,23,Feminine Care
+0000000015,Product 15,21,25,First Aid
+0000000016,Product 16,30,27,Foot Care
+0000000017,Product 17,30,29,Hair Care
+0000000018,Product 18,30,30,Homeopathic Kits & Single Remedies
+0000000019,Product 19,30,31,Alternative Therapy
+0000000020,Product 20,38,33,Shaving & Grooming
+0000000021,Product 21,38,35,Oral Care
+0000000022,Product 22,38,37,Skin Care
+0000000022,Product 22,38,37,Skin Care
+0000000023,Product 23,38,38,Nicotine Replacement Therapy
+0000000024,Product 24,38,39,Sun Care
+0000000025,Product 25,40,40,Trial & Travel Sizes
+0000000026,Product 26,40,41,Vitamins & Dietary Supplements
+0000000027,Product 27,40,43,Wets & Drys
+0000000028,Product 28,40,44,Batteries
+0000000029,Product 29,55,51,Automotive Supplies
+0000000030,Product 30,55,53,Confections
+0000000031,Product 31,55,54,Cosmetics
+0000000032,Product 32,55,55,Electronics & Audio/Video
+0000000033,Product 33,55,56,Food & Beverages
+0000000034,Product 34,60,57,Gifts & Novelties
+0000000035,Product 35,60,58,Greeting Cards & Other Assoc. Mfg. Items
+0000000036,Product 36,60,59,Hair Accessories
+0000000037,Product 37,60,60,Household Products
+0000000037,Product 37,60,60,Household Products
+0000000038,Product 38,65,61,Leather/Vinyl Goods
+0000000039,Product 39,65,62,Magazines & Books
+0000000040,Product 40,65,64,Pet & Animal Supplies
+0000000041,Product 41,65,65,Photography
+0000000042,Product 42,66,66,Household Products
+0000000043,Product 43,67,66,Seasonal Products
+0000000044,Product 44,68,67,Sewing & Crafts
+0000000045,Product 45,70,68,Soft Lines
+0000000046,Product 46,71,69,Sports & Recreation
+0000000047,Product 47,72,70,School & Office
+0000000048,Product 48,73,71,Tobacco
+0000000049,Product 49,90,72,Toys
+0000000050,Product 50,90,73,Fragrances
+0000000051,Product 51,90,78,Professional OTCs In Pharmacy
+0000000052,Product 52,90,90,Home Health Care
+0000000053,Product 53,95,91,Home Health Care
+0000000054,Product 54,95,92,Home Health Care
+0000000055,Product 55,95,93,Home Health Care
+0000000056,Product 56,95,94,Incontinence
+0000000057,Product 57,95,95,Patient Skin Care
+0000000058,Product 58,95,96,Home Diag &Patient Aids For Daily Living

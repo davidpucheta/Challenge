@@ -4,6 +4,7 @@ using WebAPI.Profiles;
 using AutoMapper;
 using Models.Data;
 using Models.Interfaces;
+using WebAPI.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration config = new ConfigurationBuilder()
@@ -23,6 +24,7 @@ builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 builder.Services.AddTransient<IRepository<Category>, CategoriesRepository>();
 builder.Services.AddTransient<IRepository<Product>, ProductsRepository>();
+builder.Services.AddTransient<ICSVProcessor, CsvProcessor>();
 
 var app = builder.Build();
 

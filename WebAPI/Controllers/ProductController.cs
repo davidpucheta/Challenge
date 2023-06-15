@@ -35,7 +35,7 @@ public class ProductController : ControllerBase
         prodQuery = prodQuery.Skip((filter.Page - 1) * filter.PageSize).Take(filter.PageSize);
 
         var products = prodQuery.ToList();
-        var productsViewModels = _mapper.Map<List<CategoryViewModel>>(products);
+        var productsViewModels = _mapper.Map<List<ProductViewModel>>(products);
         return Ok(productsViewModels);
     }
 
