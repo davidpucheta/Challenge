@@ -1,5 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using Repository;
+using WebAPI.Profiles;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 IConfiguration config = new ConfigurationBuilder()
@@ -15,6 +17,7 @@ builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseNpgsql(config.GetConnectionString("postgres")));
+builder.Services.AddAutoMapper(typeof(MappingProfile));
 
 var app = builder.Build();
 
