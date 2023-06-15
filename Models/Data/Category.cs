@@ -14,5 +14,5 @@ public class Category
     public required string Name { get; set; }
 
     [Column("Category_Creation_Date")]
-    public DateTime CreationDate { get; set; }
+    public DateTime CreationDate { get; set; } = DateTime.UtcNow;
 }

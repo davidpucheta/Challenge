@@ -1,4 +1,7 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using AutoMapper;
+using Microsoft.AspNetCore.Mvc;
+using Models.Data;
+using Models.Interfaces;
 using Models.ViewModels;
 
 namespace WebAPI.Controllers;
@@ -7,9 +10,29 @@ namespace WebAPI.Controllers;
 [Route("[controller]")]
 public class CategoryController : ControllerBase
 {
-    [HttpGet]
-    public IEnumerable<Category> Get()
+    private readonly IRepository<Category> _repository;
+    private readonly IMapper _mapper;
+
+    public CategoryController(IRepository<Category> repository, IMapper mapper)
     {
-        return new List<Category>();
+        _repository = repository;
+        _mapper = mapper;
+    }
+
+    [HttpGet]
+    public IEnumerable<CategoryViewModel> Get()
+    {
+        var categories = _repository.GetAll();
+
+        return _mapper.Map<List<CategoryViewModel>>(categories);
+    }
+
+    [HttpPost]
+    public IActionResult Post(CategoryViewModel category)
+    {
+        var cat = _mapper.Map<Category>(category);
+        _repository.Add(cat);
+
+        return Ok(cat);
     }
 }

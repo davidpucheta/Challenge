@@ -1,10 +1,8 @@
 ﻿namespace Models.ViewModels;
 
-public class Category
+public class CategoryViewModel
 {
     public int Code { get; set; }
 
     public required string Name { get; set; }
-
-    public DateTime CreationDate { get; set; }
 }

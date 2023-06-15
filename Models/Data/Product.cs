@@ -17,5 +17,5 @@ public class Product
     public int CategoryCode { get; set; }
 
     [Column("Product_Creation_Date")]
-    public DateTime CreationDate { get; set; }
+    public DateTime CreationDate { get; set; } = DateTime.UtcNow;
 }

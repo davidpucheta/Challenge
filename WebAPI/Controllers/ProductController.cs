@@ -17,15 +17,15 @@ public class ProductController : ControllerBase
 
 
     [HttpGet]
-    public IEnumerable<Product> Get()
+    public IEnumerable<ProductViewModel> Get()
     {
-        return new List<Product>();
+        return new List<ProductViewModel>();
     }
 
     [HttpPost]
-    public IActionResult Post(Product product)
+    public IActionResult Post(ProductViewModel productViewModel)
     {
-        var prod = _mapper.Map<Product, Models.Data.Product>(product);
+        var prod = _mapper.Map<ProductViewModel, Models.Data.Product>(productViewModel);
 
         return Ok(prod);
     }

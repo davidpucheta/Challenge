@@ -7,8 +7,8 @@ namespace WebAPI.Profiles
 
         public MappingProfile()
         {
-            CreateMap<Models.ViewModels.Category, Models.Data.Category>();
-            CreateMap<Models.ViewModels.Product, Models.Data.Product>();
+            CreateMap<Models.ViewModels.CategoryViewModel, Models.Data.Category>().ReverseMap();
+            CreateMap<Models.ViewModels.ProductViewModel, Models.Data.Product>();
         }
     }
 }

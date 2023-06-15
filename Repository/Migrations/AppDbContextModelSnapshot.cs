@@ -22,7 +22,7 @@ namespace Repository.Migrations
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
 
-            modelBuilder.Entity("Models.Data.Category", b =>
+            modelBuilder.Entity("Models.Data.CategoryViewModel", b =>
                 {
                     b.Property<int>("Code")
                         .ValueGeneratedOnAdd()
@@ -45,7 +45,7 @@ namespace Repository.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("Models.Data.Product", b =>
+            modelBuilder.Entity("Models.Data.ProductViewModel", b =>
                 {
                     b.Property<int>("Code")
                         .ValueGeneratedOnAdd()
