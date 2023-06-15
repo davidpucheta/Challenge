@@ -12,9 +12,9 @@ public class CategoriesRepository : IRepository<Category>
         _appDbContext = appDbContext;
     }
 
-    public List<Category> GetAll()
+    public IQueryable<Category> Get()
     {
-        return _appDbContext.Categories.ToList();
+        return _appDbContext.Categories;
     }
 
     public void Add(Category category)

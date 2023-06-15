@@ -2,7 +2,7 @@
 
 public interface IRepository<T> where T : class
 {
-    public List<T> GetAll();
+    public IQueryable<T> Get();
 
     public void Add(T type);
 }

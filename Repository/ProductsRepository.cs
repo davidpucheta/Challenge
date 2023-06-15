@@ -12,9 +12,9 @@ public class ProductsRepository : IRepository<Product>
         _appDbContext = appDbContext;
     }
 
-    public List<Product> GetAll()
+    public IQueryable<Product> Get()
     {
-        return _appDbContext.Products.ToList();
+        return _appDbContext.Products;
     }
 
     public void Add(Product product)

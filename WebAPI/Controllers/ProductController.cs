@@ -1,5 +1,9 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+using Models.Data;
+using Models.Filters;
+using Models.Interfaces;
 using Models.ViewModels;
 
 namespace WebAPI.Controllers;
@@ -9,17 +13,27 @@ namespace WebAPI.Controllers;
 public class ProductController : ControllerBase
 {
     private readonly IMapper _mapper;
-
-    public ProductController(IMapper mapper)
+    private readonly IRepository<Product> _repository;
+    public ProductController(IMapper mapper, IRepository<Product> repository)
     {
         _mapper = mapper;
+        _repository = repository;
     }
 
-
     [HttpGet]
-    public IEnumerable<ProductViewModel> Get()
+    public ActionResult<IEnumerable<ProductViewModel>> Get([FromQuery] Filter filter)
     {
-        return new List<ProductViewModel>();
+        var prodQuery = _repository.Get();
+
+        prodQuery = filter.SortDesc
+            ? prodQuery.OrderByDescending(c => EF.Property<Product>(c, filter.SortBy))
+            : prodQuery.OrderBy(c => EF.Property<Product>(c, filter.SortBy));
+
+        prodQuery = prodQuery.Skip((filter.Page - 1) * filter.PageSize).Take(filter.PageSize);
+
+        var products = prodQuery.ToList();
+        var productsViewModels = _mapper.Map<List<CategoryViewModel>>(products);
+        return Ok(productsViewModels);
     }
 
     [HttpPost]

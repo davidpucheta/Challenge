@@ -1,6 +1,8 @@
 ﻿using AutoMapper;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Models.Data;
+using Models.Filters;
 using Models.Interfaces;
 using Models.ViewModels;
 
@@ -10,9 +12,8 @@ namespace WebAPI.Controllers;
 [Route("[controller]")]
 public class CategoryController : ControllerBase
 {
-    private readonly IRepository<Category> _repository;
     private readonly IMapper _mapper;
-
+    private readonly IRepository<Category> _repository;
     public CategoryController(IRepository<Category> repository, IMapper mapper)
     {
         _repository = repository;
@@ -20,11 +21,19 @@ public class CategoryController : ControllerBase
     }
 
     [HttpGet]
-    public IEnumerable<CategoryViewModel> Get()
+    public ActionResult<IEnumerable<CategoryViewModel>> Get([FromQuery] Filter filter)
     {
-        var categories = _repository.GetAll();
+        var catQuery = _repository.Get();
 
-        return _mapper.Map<List<CategoryViewModel>>(categories);
+        catQuery = filter.SortDesc
+            ? catQuery.OrderByDescending(c => EF.Property<Category>(c, filter.SortBy.ToString()))
+            : catQuery.OrderBy(c => EF.Property<Category>(c, filter.SortBy.ToString()));
+
+        catQuery = catQuery.Skip((filter.Page - 1) * filter.PageSize).Take(filter.PageSize);
+
+        var categories = catQuery.ToList();
+        var categoriesViewModels = _mapper.Map<List<CategoryViewModel>>(categories);
+        return Ok(categoriesViewModels);
     }
 
     [HttpPost]
