@@ -6,6 +6,8 @@ public class Filter
 
     public int PageSize { get; set; } = 10;
 
+    public int SearchCode { get; set; }
+
     public string SortBy { get; set; } = "Code";
 
     public bool SortDesc { get; set; } = false;

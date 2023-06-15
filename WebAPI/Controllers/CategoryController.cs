@@ -25,6 +25,9 @@ public class CategoryController : ControllerBase
     {
         var catQuery = _repository.Get();
 
+        if (filter.SearchCode != default)
+            catQuery = catQuery.Where(c => c.Code == filter.SearchCode);
+
         catQuery = filter.SortDesc
             ? catQuery.OrderByDescending(c => EF.Property<Category>(c, filter.SortBy.ToString()))
             : catQuery.OrderBy(c => EF.Property<Category>(c, filter.SortBy.ToString()));

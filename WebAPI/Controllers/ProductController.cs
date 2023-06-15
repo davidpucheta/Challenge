@@ -25,6 +25,9 @@ public class ProductController : ControllerBase
     {
         var prodQuery = _repository.Get();
 
+        if (filter.SearchCode != default)
+            prodQuery = prodQuery.Where(p => p.Code == filter.SearchCode);
+
         prodQuery = filter.SortDesc
             ? prodQuery.OrderByDescending(c => EF.Property<Product>(c, filter.SortBy))
             : prodQuery.OrderBy(c => EF.Property<Product>(c, filter.SortBy));
