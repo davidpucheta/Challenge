@@ -32,6 +32,6 @@ public class CsvController : ControllerBase
             _csvProcessor.ImportCSVFile(filePath);
         }
 
-        return Ok("File uploaded successfully");
+        return Ok("File imported successfully");
     }
 }
