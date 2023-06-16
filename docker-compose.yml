@@ -1,0 +1,37 @@
+version: '3.7'
+
+networks:
+  dev:
+    driver: bridge
+
+services:
+  wepapi_app:
+    container_name: "webapi"
+    image: "webapi"
+    depends_on:
+      - "webapi_db"
+    ports:
+      - "8000:80"
+    build:
+      context: .
+      dockerfile: WebAPI/Dockerfile
+    networks:
+      - dev
+
+  webapi_db:
+    image: "postgres"
+    container_name: "postgres"
+    environment:
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=Pwd12345!
+    ports:
+      - "5432:5432"
+    restart: always
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+      - ./sql/create_tables.sql:/docker-entrypoint-initdb.d/create_tables.sql
+    networks:
+      - dev
+
+volumes:
+  postgres_data:
